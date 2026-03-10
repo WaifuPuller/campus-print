@@ -63,7 +63,7 @@ return
 try{
 
 // create Razorpay order
-const response = await fetch("http://127.0.0.1:5000/create-order",{
+const response = await fetch("https://campus-print.onrender.com/create-order",{
 method:"POST",
 headers:{
 "Content-Type":"application/json"
@@ -89,7 +89,7 @@ description: "Document Printing",
 
 handler: async function(response){
 
-let verify = await fetch("http://127.0.0.1:5000/verify-payment",{
+let verify = await fetch("https://campus-print.onrender.com/verify-payment",{
 method:"POST",
 headers:{
 "Content-Type":"application/json"
