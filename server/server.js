@@ -16,8 +16,8 @@ next()
 
 // Razorpay instance
 const razorpay = new Razorpay({
-key_id: "rzp_live_SPcApXB3TXAvdO",
-key_secret: "cwAXVtjwkFly2aUcbPDk3nEc"
+key_id: process.env.RAZORPAY_KEY_ID,
+key_secret: process.env.RAZORPAY_KEY_SECRET
 })
 
 
@@ -60,7 +60,7 @@ const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = req.body
 const body = razorpay_order_id + "|" + razorpay_payment_id
 
 const expectedSignature = crypto
-.createHmac("sha256","cwAXVtjwkFly2aUcbPDk3nEc")
+.createHmac("sha256", process.env.RAZORPAY_KEY_SECRET)
 .update(body.toString())
 .digest("hex")
 
@@ -84,6 +84,8 @@ res.status(500).send("Verification failed")
 })
 
 
-app.listen(5000,()=>{
-console.log("Server running on port 5000")
+const PORT = process.env.PORT || 5000
+
+app.listen(PORT,()=>{
+console.log("Server running on port", PORT)
 })
