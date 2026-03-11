@@ -1,0 +1,22 @@
+<div class="card">
+
+<h2>Select Delivery Location</h2>
+
+<select id="location">
+
+<option value="canteen_soe2">
+Mallareddy University Canteen (Near SOE2 Block)
+</option>
+
+</select>
+
+<br><br>
+
+<button onclick="
+localStorage.setItem('location', document.getElementById('location').value);
+go('print');
+">
+Continue
+</button>
+
+</div>

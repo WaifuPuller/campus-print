@@ -1,0 +1,24 @@
+<div class="card">
+
+<h2>Select Printing Type</h2>
+
+<select id="type">
+
+<option value="ad">AD Project Printing</option>
+
+<option value="normal_bw">Normal B/W</option>
+
+<option value="normal_color">Normal Color Detection</option>
+
+</select>
+
+<br><br>
+
+<button onclick="
+localStorage.setItem('printType', document.getElementById('type').value);
+go('upload');
+">
+Continue
+</button>
+
+</div>
