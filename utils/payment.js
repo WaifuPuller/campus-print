@@ -1,4 +1,5 @@
 import { saveOrder } from "./utils/saveOrder.js"
+
 window.startPayment = async function(){
 
 const data = window.orderData
@@ -11,7 +12,7 @@ headers:{
 },
 
 body:JSON.stringify({
-amount:data.totalCost*100
+amount:data.totalCost * 100
 })
 
 })
@@ -34,9 +35,9 @@ description:"Document Printing",
 
 handler: async function(response){
 
-try{
-
 console.log("Payment success", response)
+
+try{
 
 await saveOrder(response)
 
@@ -56,7 +57,6 @@ alert("Order saving failed. Check console.")
 }
 
 const rzp = new Razorpay(options)
-
 rzp.open()
 
 }
