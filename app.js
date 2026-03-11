@@ -67,8 +67,16 @@ Print Type: ${type} <br>
 Total Cost: ₹${cost}
 `
 
+/* THIS PART IS IMPORTANT */
+window.orderData = {
+pages: pages,
+copies: copies,
+totalCost: cost,
+printType: type,
+colorPages: 0,
+bwPages: pages
+}
+
 window.totalCost = cost
 
 }
-
-window.startPayment = startPayment

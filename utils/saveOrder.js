@@ -12,7 +12,6 @@ const storage = getStorage(app)
 export async function saveOrder(payment){
 
 const order = window.orderData
-
 const location = localStorage.getItem("location")
 
 const orderId = "CP"+Date.now()
@@ -50,7 +49,7 @@ fileURL:url,
 
 status:"pending",
 
-createdAt:new Date()
+createdAt:new Date().toISOString()
 
 })
 
