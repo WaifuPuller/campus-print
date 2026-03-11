@@ -1,3 +1,4 @@
+import { saveOrder } from "./utils/saveOrder.js"
 window.startPayment = async function(){
 
 const data = window.orderData
@@ -31,11 +32,24 @@ name:"Campus Print",
 
 description:"Document Printing",
 
-handler:async function(response){
+handler: async function(response){
+
+try{
+
+console.log("Payment success", response)
 
 await saveOrder(response)
 
+console.log("Order saved to Firebase")
+
 go("success")
+
+}catch(err){
+
+console.error("Save order failed:", err)
+alert("Order saving failed. Check console.")
+
+}
 
 }
 
