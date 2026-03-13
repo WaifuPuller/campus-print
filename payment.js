@@ -28,9 +28,24 @@ order_id:order.id,
 name:"Campus Print",
 description:"Document Printing",
 
-handler:function(response){
+handler: async function(response){
 
 console.log("Payment success", response)
+
+const file = window.selectedFile
+
+const storageRef = ref(storage, "orders/" + file.name)
+
+await uploadBytes(storageRef, file)
+
+await addDoc(collection(db, "orders"), {
+    file: file.name,
+    pages: window.pageCount,
+    cost: window.totalCost,
+    date: new Date(),
+    paymentId: response.razorpay_payment_id
+})
+
 go("success")
 
 }
