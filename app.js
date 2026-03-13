@@ -25,6 +25,7 @@ go("review")
 }
 
 window.loadReview = async function(){
+window.pageCount = pages
 
 const type = localStorage.getItem("printType")
 const copies = parseInt(localStorage.getItem("copies"))
