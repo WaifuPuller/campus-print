@@ -19,7 +19,7 @@ const order = await res.json()
 
 const options = {
 
-key:"rzp_live_SPcApXB3TXAvdO",
+key:"rzp_test_SQav0WvwuGdoJT",
 
 amount:order.amount,
 currency:"INR",
